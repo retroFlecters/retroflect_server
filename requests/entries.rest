@@ -1,0 +1,11 @@
+
+GET http://localhost:3001/api/entries
+
+###
+
+POST http://localhost:3001/api/entries HTTP/1.1
+content-type: application/json
+
+{
+  "gratitude": "More food" 
+}
