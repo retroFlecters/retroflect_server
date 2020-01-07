@@ -1,11 +1,15 @@
+###
 
+# Get all entries
 GET http://localhost:3001/api/entries
 
 ###
+
+# Create an entry
 
 POST http://localhost:3001/api/entries HTTP/1.1
 content-type: application/json
 
 {
-  "gratitude": "More food" 
+  "gratitude": "Hi" 
 }
