@@ -5,7 +5,7 @@ module.exports.getAll = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  const gratitude = req.body
+  const { gratitude } = req.body
   entries.push({ id: Math.random().toString(), gratitude })
   res.status(201).json(entries[entries.length - 1])
 };
