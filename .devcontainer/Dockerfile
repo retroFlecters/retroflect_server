@@ -34,8 +34,6 @@ RUN apt-get update \
     && apt-get update \
     && apt-get -y install --no-install-recommends yarn \
     #
-    # Install eslint globally
-    && npm install -g eslint \
     #
     # [Optional] Update a non-root user to UID/GID if needed.
     && if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
