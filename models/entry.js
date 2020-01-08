@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const EntrySchema = new Schema(
   {
-    entryDate: Date,
+    entryDate: { type: Date, required: true },
     diary: String
   },
   { timestamps: true }
