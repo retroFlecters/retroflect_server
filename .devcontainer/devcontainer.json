@@ -23,6 +23,7 @@
     "humao.rest-client",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "ms-vsliveshare.vsliveshare"
+    "ms-vsliveshare.vsliveshare",
+    "eamodio.gitlens"
   ]
 }
