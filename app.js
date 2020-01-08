@@ -7,7 +7,15 @@ const logger = require("morgan");
 const entriesRouter = require("./routes/entriesRouter");
 
 // Set up mongoose connection
-const mongoDB = "mongodb://mongo:27017/retroflect_development";
+const getMongoDbUri = () => {
+  switch (process.env.NODE_ENV) {
+    case "production":
+      return process.env.MONGODB_URI_PRODUCTION;
+    default:
+      return "mongodb://mongo:27017/retroflect_development";
+  }
+};
+const mongoDB = getMongoDbUri();
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
