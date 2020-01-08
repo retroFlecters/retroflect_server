@@ -7,7 +7,7 @@ const logger = require("morgan");
 const entriesRouter = require("./routes/entriesRouter");
 
 // Set up mongoose connection
-const mongoDB = "mongodb://127.0.0.1:27017/retro_development";
+const mongoDB = "mongodb://mongo:27017/retroflect_development";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
