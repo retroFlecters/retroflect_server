@@ -1,14 +1,12 @@
-const entries = [
-  { id: 1, gratitude: "I'm grateful for popcorns." },
-  { id: 2, gratitude: "I'm grateful for working on codings." }
-];
+const Entry = require("../models/entry");
 
-module.exports.getAll = (req, res) => {
+module.exports.getAll = async (req, res) => {
+  const entries = await Entry.find();
   res.status(200).json(entries);
 };
 
-module.exports.create = (req, res) => {
-  const { gratitude } = req.body;
-  entries.push({ id: Math.random().toString(), gratitude });
-  res.status(201).json(entries[entries.length - 1]);
+module.exports.create = async (req, res) => {
+  const { entryDate, diary } = req.body;
+  const entry = await Entry.create({ entryDate, diary });
+  res.status(201).json(entry);
 };

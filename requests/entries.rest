@@ -8,5 +8,6 @@ POST http://localhost:3001/api/entries HTTP/1.1
 content-type: application/json
 
 {
-  "gratitude": "Hi" 
+  "entryDate": "2020-01-09",
+  "diary": "I need a break now. Please Selina."
 }
