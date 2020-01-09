@@ -5,8 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 const entriesRouter = require("./routes/entriesRouter");
-const usersRouter = require("./routes/usersRouter");
-// const authRouter = require("./routes/authRouter");
+const authRouter = require("./routes/authRouter");
 
 // Set up mongoose connection
 const getMongoDbUri = () => {
@@ -31,7 +30,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api/entries", entriesRouter);
-app.use("/api/users", usersRouter);
-// app.use("/api/auth", authRouter);
+app.use("/api/auth", authRouter);
 
 module.exports = app;

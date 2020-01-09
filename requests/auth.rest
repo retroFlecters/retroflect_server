@@ -1,7 +1,20 @@
+###
+# Create a new user
+POST http://localhost:3001/api/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Yogi",
+  "lastName": "Bear",
+  "email": "bear@mountain.com",
+  "password": "Bearpassword123!"
+}
+
+
 
 ###
-# Login in with correct password
-POST http://localhost:3001/api/auth/login HTTP/1.1
+# Sign in with correct password
+POST http://localhost:3001/api/auth/signin HTTP/1.1
 content-type: application/json
 
 {
@@ -10,9 +23,10 @@ content-type: application/json
 }
 
 
+
 ###
-# Attempt login in with incorrect password
-POST http://localhost:3001/api/auth/login HTTP/1.1
+# Attempt Sign in with incorrect password
+POST http://localhost:3001/api/auth/signin HTTP/1.1
 content-type: application/json
 
 {
