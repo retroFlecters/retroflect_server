@@ -1,0 +1,21 @@
+
+###
+# Login in with correct password
+POST http://localhost:3001/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+  "email": "bear@mountain.com",
+  "password": "Bearpassword123!"
+}
+
+
+###
+# Attempt login in with incorrect password
+POST http://localhost:3001/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+  "email": "bear@mountain.com",
+  "password": "Fakepassword123!"
+}
