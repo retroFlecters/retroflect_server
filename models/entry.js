@@ -7,7 +7,8 @@ const { Schema } = mongoose;
 const EntrySchema = new Schema(
   {
     entryDate: { type: Date, required: true },
-    diary: String
+    diary: String,
+    user: { type: Schema.Types.ObjectId, ref: "User" }
   },
   { timestamps: true }
 );

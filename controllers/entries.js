@@ -6,7 +6,7 @@ module.exports.getAll = async (req, res) => {
 };
 
 module.exports.create = async (req, res) => {
-  const { entryDate, diary } = req.body;
-  const entry = await Entry.create({ entryDate, diary });
+  const { entryDate, diary, user } = req.body;
+  const entry = await Entry.create({ entryDate, diary, user: user.id });
   res.status(201).json(entry.toJSON());
 };
