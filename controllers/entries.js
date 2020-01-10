@@ -1,7 +1,7 @@
 const Entry = require("../models/entry");
 
 module.exports.getAll = async (req, res) => {
-  const entries = await Entry.find();
+  const entries = await Entry.find({ user: req.body.user.id });
   res.status(200).json(entries.map(entry => entry.toJSON()));
 };
 
