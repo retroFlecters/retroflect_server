@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 module.exports.signup = async (req, res) => {
@@ -10,17 +11,26 @@ module.exports.signup = async (req, res) => {
 };
 
 module.exports.signin = async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
+  const { body } = req;
+  const user = await User.findOne({ email: body.email });
 
   let isPasswordCorrect = false;
   if (user) {
-    isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
+    isPasswordCorrect = await bcrypt.compare(body.password, user.passwordHash);
   }
 
   if (isPasswordCorrect) {
-    res.status(200).json(user.toJSON());
+    const userForToken = {
+      email: user.email,
+      // eslint-disable-next-line no-underscore-dangle
+      id: user._id
+    };
+
+    const token = `Bearer ${jwt.sign(userForToken, process.env.SECRET)}`;
+
+    const { email, firstName, lastName } = user;
+    res.status(200).json({ token, email, firstName, lastName });
   } else {
-    res.status(404).json("Invalid email or password.");
+    res.status(401).json("Invalid email or password.");
   }
 };
