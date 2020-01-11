@@ -10,6 +10,5 @@ jobs:
 
     steps:
       - checkout
-      - run: sudo npm install yarn -g
       - run: yarn lint
       - run: echo "lint successful"
