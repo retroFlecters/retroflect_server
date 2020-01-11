@@ -1,0 +1,61 @@
+###
+# Create a new user: Yogi Bear
+POST http://localhost:3001/api/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Yogi",
+  "lastName": "Bear",
+  "email": "yogibear@mountain.com",
+  "password": "Bearpassword123!"
+}
+
+
+
+###
+# Sign in with correct password Yogi Bear
+POST http://localhost:3001/api/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+  "email": "yogibear@mountain.com",
+  "password": "Bearpassword123!"
+}
+
+
+
+###
+# Create a new user: Small Bear
+POST http://localhost:3001/api/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Small",
+  "lastName": "Bear",
+  "email": "Smallbear@mountain.com",
+  "password": "Smallpassword123!"
+}
+
+
+
+###
+# Sign in with correct password Small Bear
+POST http://localhost:3001/api/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+  "email": "Smallbear@mountain.com",
+  "password": "Smallpassword123!"
+}
+
+
+
+###
+# Attempt Sign in with incorrect password
+POST http://localhost:3001/api/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+  "email": "bear@mountain.com",
+  "password": "Fakepassword123!"
+}

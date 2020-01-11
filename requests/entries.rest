@@ -1,13 +1,31 @@
 ###
-# Get all entries
+# Get all entries for Yogi Bear
 GET http://localhost:3001/api/entries HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlYXJAbW91bnRhaW4uY29tIiwiaWQiOiI1ZTE3YzhlMTQ4NjM1OTc5YmEyMTUzYmYiLCJpYXQiOjE1Nzg2NTI4MzN9.p7FtqyvSdFn72k0ZBLpvt7u-nKZkVIExL-LapwnhGEI
 
 ###
-# Create an entry
+# Create an entry as Yogi Bear
 POST http://localhost:3001/api/entries HTTP/1.1
-content-type: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlYXJAbW91bnRhaW4uY29tIiwiaWQiOiI1ZTE3YzhlMTQ4NjM1OTc5YmEyMTUzYmYiLCJpYXQiOjE1Nzg2NTI4MzN9.p7FtqyvSdFn72k0ZBLpvt7u-nKZkVIExL-LapwnhGEI
 
 {
-  "entryDate": "2020-01-09",
-  "diary": "I need a break now. Please Selina."
+  "entryDate": "2020-01-08",
+  "diary": "I am learning how to steal picnics better."
+}
+
+###
+# Get all entries for Little Bear
+GET http://localhost:3001/api/entries HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlNtYWxsYmVhckBtb3VudGFpbi5jb20iLCJpZCI6IjVlMTg2MWUyYjY5ZTFmMDQ0YjQwOTY1NCIsImlhdCI6MTU3ODY2MzM0NX0.zXZ9OckekZCEqV4A7QuVPeJAiXJcs9E2ObHP8qlH1Vs
+
+###
+# Create an entry as Little Bear
+POST http://localhost:3001/api/entries HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlNtYWxsYmVhckBtb3VudGFpbi5jb20iLCJpZCI6IjVlMTg2MWUyYjY5ZTFmMDQ0YjQwOTY1NCIsImlhdCI6MTU3ODY2MzM0NX0.zXZ9OckekZCEqV4A7QuVPeJAiXJcs9E2ObHP8qlH1Vs
+
+{
+  "entryDate": "2020-01-08",
+  "diary": "I love crisps."
 }

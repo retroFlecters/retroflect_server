@@ -1,10 +1,13 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
+const authMiddleware = require("./lib/authMiddleware");
 const entriesRouter = require("./routes/entriesRouter");
+const authRouter = require("./routes/authRouter");
 
 // Set up mongoose connection
 const getMongoDbUri = () => {
@@ -28,6 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api/entries", entriesRouter);
+app.use("/api/entries", authMiddleware.authenticate, entriesRouter);
+app.use("/api/auth", authRouter);
 
 module.exports = app;
