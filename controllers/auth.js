@@ -30,7 +30,8 @@ module.exports.signin = async (req, res) => {
 
     const tokenCookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production"
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "None"
     };
     res.cookie("token", token, tokenCookieOptions);
     const { email, firstName, lastName } = user;
