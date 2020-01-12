@@ -1,10 +1,10 @@
 ###
 # Get all entries for signed in user
-GET http://localhost:3001/api/entries HTTP/1.1
+GET {{host}}/api/entries HTTP/1.1
 
 ###
 # Create an entry as signed in user
-POST http://localhost:3001/api/entries HTTP/1.1
+POST {{host}}/api/entries HTTP/1.1
 Content-Type: application/json
 
 {
