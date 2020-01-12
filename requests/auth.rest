@@ -59,3 +59,7 @@ content-type: application/json
   "email": "bear@mountain.com",
   "password": "Fakepassword123!"
 }
+
+###
+# Signout
+GET http://localhost:3001/api/auth/signout HTTP/1.1
