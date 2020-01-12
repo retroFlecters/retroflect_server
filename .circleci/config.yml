@@ -11,5 +11,4 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn lint
-      - run: echo "lint successful"
+      - run: yarn lint-ci
