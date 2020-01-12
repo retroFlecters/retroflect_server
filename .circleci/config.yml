@@ -12,4 +12,3 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn lint-ci
-      - run: node citest.js
