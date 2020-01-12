@@ -14,6 +14,7 @@ content-type: application/json
 
 ###
 # Sign in with correct password Yogi Bear
+# vscode rest client will save the token cookie for the last signed in user
 POST http://localhost:3001/api/auth/signin HTTP/1.1
 content-type: application/json
 
@@ -40,6 +41,7 @@ content-type: application/json
 
 ###
 # Sign in with correct password Small Bear
+# vscode rest client will save the token cookie for the last signed in user
 POST http://localhost:3001/api/auth/signin HTTP/1.1
 content-type: application/json
 
@@ -59,3 +61,7 @@ content-type: application/json
   "email": "bear@mountain.com",
   "password": "Fakepassword123!"
 }
+
+###
+# Signout
+GET http://localhost:3001/api/auth/signout HTTP/1.1
