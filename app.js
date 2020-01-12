@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const logger = require("morgan");
 
 const authMiddleware = require("./lib/authMiddleware");
@@ -24,6 +25,21 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const app = express();
+
+// set cors policy
+const whitelist = ["http://localhost:3000", "http://retroflect.now.sh"];
+const corsOptions = {
+  origin(origin, callback) {
+    // allow requests from whitelisted domains and devices e.g. rest clients, mobiles
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+};
+app.use(cors(corsOptions));
 
 app.use(logger("dev"));
 app.use(express.json());
