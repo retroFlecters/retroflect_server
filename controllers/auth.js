@@ -29,8 +29,9 @@ module.exports.signin = async (req, res) => {
     const token = `Bearer ${jwt.sign(userForToken, process.env.SECRET)}`;
 
     const tokenCookieOptions = {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production"
+      HttpOnly: true,
+      Secure: process.env.NODE_ENV === "production",
+      SameSite: None
     };
     res.cookie("token", token, tokenCookieOptions);
     const { email, firstName, lastName } = user;
