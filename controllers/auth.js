@@ -31,7 +31,8 @@ module.exports.signin = async (req, res) => {
     const tokenCookieOptions = {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: false
+      sameSite: false,
+      expires: new Date(Date.now() + 1000 * 365 * 24 * 3600000) // expire cookie after 1000 years
     };
     res.cookie("token", token, tokenCookieOptions);
     const { email, firstName, lastName } = user;
