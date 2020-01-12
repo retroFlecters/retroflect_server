@@ -13,13 +13,19 @@ const authRouter = require("./routes/authRouter");
 const getMongoDbUri = () => {
   switch (process.env.NODE_ENV) {
     case "production":
+      // needs to be set in host environment for deployment
       return process.env.MONGODB_URI_PRODUCTION;
+    case "test":
+      return "mongodb://mongo:27017/retroflect_test";
     default:
       return "mongodb://mongo:27017/retroflect_development";
   }
 };
-const mongoDB = getMongoDbUri();
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect(getMongoDbUri(), {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
