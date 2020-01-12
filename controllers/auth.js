@@ -28,8 +28,13 @@ module.exports.signin = async (req, res) => {
 
     const token = `Bearer ${jwt.sign(userForToken, process.env.SECRET)}`;
 
+    const tokenCookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production"
+    };
+    res.cookie("token", token, tokenCookieOptions);
     const { email, firstName, lastName } = user;
-    res.status(200).json({ token, email, firstName, lastName });
+    res.status(200).json({ email, firstName, lastName });
   } else {
     res.status(401).json("Invalid email or password.");
   }
