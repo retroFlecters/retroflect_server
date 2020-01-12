@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12
+        name: web
+
+      - image: circleci/mongo
+        name: mongo
+
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn lint-ci
