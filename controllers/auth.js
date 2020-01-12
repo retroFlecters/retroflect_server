@@ -31,7 +31,7 @@ module.exports.signin = async (req, res) => {
     const tokenCookieOptions = {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "none"
+      sameSite: false
     };
     res.cookie("token", token, tokenCookieOptions);
     const { email, firstName, lastName } = user;
