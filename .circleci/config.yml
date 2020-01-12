@@ -12,3 +12,4 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn lint-ci
+      - run: ping mongo -c 10
