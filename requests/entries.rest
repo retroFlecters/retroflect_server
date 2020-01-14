@@ -8,6 +8,6 @@ POST {{host}}/api/entries HTTP/1.1
 Content-Type: application/json
 
 {
-  "entryDate": "2020-01-09",
-  "diary": "I have stolen picnic baskets."
+  "entryDate": "2020-01-11",
+  "diary": "I drink melted snow."
 }
