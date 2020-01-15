@@ -27,7 +27,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 const app = express();
 
 // set cors policy
-const whitelist = ["http://localhost:3000", "http://retroflect.now.sh"];
+const whitelist = ["http://localhost:3000", "https://retroflect.now.sh"];
 const corsOptions = {
   origin(origin, callback) {
     // allow requests from whitelisted domains and devices e.g. rest clients, mobiles
